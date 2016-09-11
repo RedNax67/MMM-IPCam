@@ -56,7 +56,9 @@ Module.register("MMM-IPCam",{
 		ipcam.src = this.Cam;
 		if(this.config.invertColors){
 			ipcam.setAttribute("style", "-webkit-filter: invert(100%); max-width: 100%; max-height: 100%; height: 280px; ")
-		}
+		} else {
+			ipcam.setAttribute("style", "-webkit-filter: max-width: 100%; max-height: 100%; height: 280px; ")
+        }
 		
 		wrapper.className = "img";
 		
