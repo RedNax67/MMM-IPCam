@@ -22,14 +22,23 @@ module.exports = NodeHelper.create({
                 port: payload.config.port,
                 user: payload.config.user,
                 pass: payload.config.pass
-            });
- 
+            },
+                function (status) {
+                    if (!status) {
+                        console.error ('ERROR: can\'t connect');    
+                    } else {
+                        var camstat;
+                        cam.status( function(stat) {
+                            console.log(stat);
+                            camstatall = stat;
+                        });
 
-            cam.snapshot( function(img) { 
-                self.sendSocketNotification("CAM", img);
-            });
-             
-            
+                        cam.snapshot( function(img) { 
+                            self.sendSocketNotification("CAM", {'all':camstatall, 'img':img});
+                        });
+                    }
+                } 
+            );
 			
 		}
 		

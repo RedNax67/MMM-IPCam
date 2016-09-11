@@ -36,9 +36,10 @@ Module.register("MMM-IPCam",{
 	socketNotificationReceived: function(notification, payload) {
 		
 		if(notification === "CAM"){
-				//Log.info(payload);
-                var b64encoded = btoa(payload);
+				Log.info(payload);
+                var b64encoded = btoa(payload.img);
                 this.Cam = "data:image/jpg;base64," + b64encoded;
+                this.CamTitle = payload.all.alias;
 				this.scheduleUpdate();
 		}
 		
@@ -49,7 +50,7 @@ Module.register("MMM-IPCam",{
 		var wrapper = document.createElement("div");
 		
 		var title = document.createElement("div");
-		title.className = "bright medium light";
+		title.className = "bright small light";
 		title.innerHTML = this.CamTitle;
 		
 		var ipcam = document.createElement("img");
@@ -57,7 +58,7 @@ Module.register("MMM-IPCam",{
 		if(this.config.invertColors){
 			ipcam.setAttribute("style", "-webkit-filter: invert(100%); max-width: 100%; max-height: 100%; height: 280px; ")
 		} else {
-			ipcam.setAttribute("style", "-webkit-filter: max-width: 100%; max-height: 100%; height: 280px; ")
+			ipcam.setAttribute("style", "max-width: 100%; max-height: 100%; height: 280px; opacity:0.7; -moz-opacity:0.7; filter:alpha(opacity=70);")
         }
 		
 		wrapper.className = "img";
