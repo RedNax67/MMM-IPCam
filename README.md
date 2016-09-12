@@ -1,5 +1,5 @@
 # MMM-IpCam
-Display ipcam (foscam and compatible) feed on MagicMirror
+Display ipcam (foscam and compatible) feed on your MagicMirror
 
 # Installing the module
 Clone this repository in your `~/MagicMirror/modules/` folder `( $ cd ~MagicMirror/modules/ )`:
