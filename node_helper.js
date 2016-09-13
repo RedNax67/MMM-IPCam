@@ -28,10 +28,10 @@ module.exports = NodeHelper.create({
                         console.error ('ERROR: can\'t connect');    
                     } else {
                         var camstat;
-                        var camstatall;
+                        var camstatall = 'failed to get cam alias.';
                         cam.status( function(stat) {
                             console.log(stat);
-                            camstatall = stat;
+                            camstatall = stat.alias;
                         });
 
                         cam.snapshot( function(img) { 

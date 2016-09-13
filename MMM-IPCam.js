@@ -34,12 +34,16 @@ Module.register("MMM-IPCam",{
 	},
 	
 	socketNotificationReceived: function(notification, payload) {
+
+		Log.log(this.name + " received a socket notification: " + notification + " - Payload: " + payload);
 		
 		if(notification === "CAM"){
-				Log.info(payload);
+				Log.info('RECEIVED CAM MSG: '+ payload);
                 var b64encoded = btoa(payload.img);
                 this.Cam = "data:image/jpg;base64," + b64encoded;
-                this.CamTitle = payload.all.alias;
+				if (payload.all != 'failed to get cam alias.') {
+					this.CamTitle = payload.all;	
+				}
 				this.scheduleUpdate();
 		}
 		
