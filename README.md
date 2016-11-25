@@ -4,9 +4,9 @@ Display ipcam (foscam and compatible) feed on your MagicMirror
 Makes use of: https://github.com/fvdm/nodejs-foscam
 
 # Installing the module
-Clone this repository in your `~/MagicMirror/modules/` folder `( $ cd ~MagicMirror/modules/ )`:
+Clone this repository in your `~/MagicMirror/modules/` folder `( $ cd ~/MagicMirror/modules/ )`:
 ````javascript
-git clone https://github.com/RedNax67/MMM-IpCam.git
+git clone https://github.com/RedNax67/MMM-IPCam.git
 ````
 
 ## Using the module
